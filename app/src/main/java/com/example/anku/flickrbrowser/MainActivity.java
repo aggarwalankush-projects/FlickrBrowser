@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         flickrRecyclerViewAdaptor = new FlickrRecyclerViewAdaptor(MainActivity.this, new ArrayList<Photo>());
         recyclerView.setAdapter(flickrRecyclerViewAdaptor);
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+                this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this,"Normal Click", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                Toast.makeText(MainActivity.this,"Long Click", Toast.LENGTH_LONG).show();
+
+            }
+        }
+        ));
     }
 
     @Override
