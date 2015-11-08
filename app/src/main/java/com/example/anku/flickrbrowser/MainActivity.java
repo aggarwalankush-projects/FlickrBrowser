@@ -15,9 +15,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String url="https://api.flickr.com/services/feeds/photos_public.gne?tags=android&format=json&nojsoncallback=1";
-        GetRawData getRawData=new GetRawData(url);
-        getRawData.execute();
+        GetFlickrJsonData getFlickrJsonData=new GetFlickrJsonData("android,lollipop",true);
+        getFlickrJsonData.execute();
     }
 
     @Override

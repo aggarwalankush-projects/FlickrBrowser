@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -17,7 +16,7 @@ enum DownloadStatus {
 public class GetRawData {
     private final String LOG_TAG = GetRawData.class.getSimpleName();
     private String dataUrl;
-    private String data;
+    private String rawData;
     private DownloadStatus downloadStatus;
 
     public GetRawData(String dataUrl) {
@@ -25,14 +24,19 @@ public class GetRawData {
         this.downloadStatus = DownloadStatus.IDLE;
     }
 
+    public void setDataUrl(String dataUrl) {
+        this.dataUrl = dataUrl;
+    }
+
     public void reset() {
-        this.data = null;
+        this.rawData = null;
         this.dataUrl = null;
+
         this.downloadStatus = DownloadStatus.IDLE;
     }
 
-    public String getData() {
-        return data;
+    public String getRawData() {
+        return rawData;
     }
 
     public DownloadStatus getDownloadStatus() {
@@ -49,7 +53,7 @@ public class GetRawData {
 
         @Override
         protected void onPostExecute(String rawData) {
-            data = rawData;
+            GetRawData.this.rawData = rawData;
             if (rawData == null) {
                 if (dataUrl == null)
                     downloadStatus = DownloadStatus.NOT_INITIALIZED;
@@ -84,8 +88,8 @@ public class GetRawData {
                     connection.disconnect();
                     reader.close();
                 }
-            } catch (IOException e) {
-                Log.d(LOG_TAG, "Error " + e.getMessage());
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Error " + e.getMessage());
             }
 
             return null;
