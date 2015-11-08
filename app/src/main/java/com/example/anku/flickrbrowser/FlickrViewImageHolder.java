@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 public class FlickrViewImageHolder extends RecyclerView.ViewHolder {
 
-    private ImageView thumbnail;
-    private TextView title;
+    public ImageView thumbnail;
+    public TextView title;
 
     public FlickrViewImageHolder(View view) {
         super(view);
