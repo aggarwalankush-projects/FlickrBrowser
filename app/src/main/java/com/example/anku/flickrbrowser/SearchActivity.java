@@ -16,8 +16,6 @@ import android.view.MenuItem;
 public class SearchActivity extends AppCompatActivity {
 
     private SearchView searchView;
-    private final String FLICKR_QUERY = "FLICKR_QUERY";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                sharedPreferences.edit().putString(FLICKR_QUERY, query).commit();
+                sharedPreferences.edit().putString("flickr_query", query).commit();
                 searchView.clearFocus();
                 finish();
                 return true;
