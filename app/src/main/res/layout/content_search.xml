@@ -9,12 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="com.example.anku.flickrbrowser.SearchActivity"
+    tools:showIn="@layout/activity_search">
 
-    <view
-        android:id="@+id/recycler_view"
-        class="android.support.v7.widget.RecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </RelativeLayout>

@@ -11,7 +11,7 @@
         android:layout_height="60dp"
         android:contentDescription="image"
         android:layout_gravity="center_horizontal"
-        android:scaleType="fitCenter"
+        android:scaleType="fitStart"
         android:src="@drawable/placeholder" />
 
     <TextView
