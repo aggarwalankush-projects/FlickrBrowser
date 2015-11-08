@@ -1,2 +1,6 @@
 # FlickrBrowser
-Learn Flickr api and Json data Processing in android
+To Learn
+ -  Flickr api
+ -  Json data Processing in android
+ -  Picasso by Square for faster image loading
+
